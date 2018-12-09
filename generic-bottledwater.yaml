@@ -20,7 +20,7 @@ spec:
         - /usr/local/bin/bottledwater-docker-wrapper.sh
         env:
         - name: BOTTLED_WATER_BROKER
-          value: kafka1-service:9092,kafka2-service:9092,kafka3-service:9092
+          value: kafka-service:9092
         - name: BOTTLED_WATER_ON_ERROR
           value: exit
         - name: BOTTLED_WATER_OUTPUT_FORMAT
