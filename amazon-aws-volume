@@ -1,0 +1,79 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: bwater-postgres-volume
+  namespace: openfaas
+  labels:
+    name: bwater-postgres-volume
+spec:
+  storageClassName: bwater-disk
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  awsElasticBlockStore:
+    volumeID: vol-1234567890abcdef0
+    fsType: ext4
+    readOnly: false
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: bwater-kafka-volume
+  namespace: openfaas
+  labels:
+    name: bwater-kafka-volume
+spec:
+  storageClassName: bwater-disk
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  awsElasticBlockStore:
+    volumeID: vol-1114567890abcdef0
+    fsType: ext4
+    readOnly: false
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: bwater-zookeeper-data-volume
+  namespace: openfaas
+  labels:
+    name: bwater-zookeeper-data-volume
+spec:
+  storageClassName: bwater-disk
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  awsElasticBlockStore:
+    volumeID: vol-9114567890abcdef0
+    fsType: ext4
+    readOnly: false
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: bwater-zookeeper-log-volume
+  namespace: openfaas
+  labels:
+    name: bwater-zookeeper-log-volume
+spec:
+  storageClassName: bwater-disk
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  awsElasticBlockStore:
+    volumeID: vol-2124567890abcdef0
+    fsType: ext4
+    readOnly: false
