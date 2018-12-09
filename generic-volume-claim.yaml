@@ -6,6 +6,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
+  storageClassName: bwater-disk
   selector:
     matchLabels:
       name: bwater-postgres-volume
@@ -19,6 +20,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
+  storageClassName: bwater-disk
   selector:
     matchLabels:
       name: bwater-kafka-volume
@@ -32,6 +34,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
+  storageClassName: bwater-disk
   selector:
     matchLabels:
       name: bwater-zookeeper-data-volume
@@ -45,6 +48,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
+  storageClassName: bwater-disk
   selector:
     matchLabels:
       name: bwater-zookeeper-log-volume
