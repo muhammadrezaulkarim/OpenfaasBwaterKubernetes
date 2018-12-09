@@ -1,0 +1,71 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: bwater-postgres-volume
+  namespace: openfaas
+  labels:
+    name: bwater-postgres-volume
+spec:
+  storageClassName: gce-slow-disk
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  gcePersistentDisk:
+    pdName: gce-bwater-postgres-pd
+    fsType: ext4
+    readOnly: false
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: bwater-kafka-volume
+  namespace: openfaas
+  labels:
+    name: bwater-kafka-volume
+spec:
+  storageClassName: gce-slow-disk
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  gcePersistentDisk:
+    pdName: gce-bwater-kafka-pd
+    fsType: ext4
+    readOnly: false
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: bwater-zookeeper-data-volume
+  namespace: openfaas
+  labels:
+    name: bwater-zookeeper-data-volume
+spec:
+  storageClassName: gce-slow-disk
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  gcePersistentDisk:
+    pdName: gce-bwater-zookeeper-data-pd
+    fsType: ext4
+    readOnly: false
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: bwater-zookeeper-log-volume
+  namespace: openfaas
+  labels:
+    name: bwater-zookeeper-log-volume
+spec:
+  storageClassName: gce-slow-disk
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  gcePersistentDisk:
+    pdName: gce-bwater-zookeeper-log-pd
+    fsType: ext4
+    readOnly: false
