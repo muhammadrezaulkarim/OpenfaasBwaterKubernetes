@@ -1,0 +1,168 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: bwater-postgres-volume-claim
+  namespace: openfaas
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+  storageClassName: bwater-disk
+  selector:
+    matchLabels:
+      name: bwater-postgres-volume
+
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: bwater-kafka1-volume-claim
+  namespace: openfaas
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+  storageClassName: bwater-disk
+  selector:
+    matchLabels:
+      name: bwater-kafka1-volume
+
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: bwater-kafka2-volume-claim
+  namespace: openfaas
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+  storageClassName: bwater-disk
+  selector:
+    matchLabels:
+      name: bwater-kafka2-volume
+      
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: bwater-kafka3-volume-claim
+  namespace: openfaas
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+  storageClassName: bwater-disk
+  selector:
+    matchLabels:
+      name: bwater-kafka3-volume
+      
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: bwater-zookeeper1-data-volume-claim
+  namespace: openfaas
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+  storageClassName: bwater-disk
+  selector:
+    matchLabels:
+      name: bwater-zookeeper1-data-volume
+      
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: bwater-zookeeper2-data-volume-claim
+  namespace: openfaas
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+  storageClassName: bwater-disk
+  selector:
+    matchLabels:
+      name: bwater-zookeeper2-data-volume
+      
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: bwater-zookeeper3-data-volume-claim
+  namespace: openfaas
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+  storageClassName: bwater-disk
+  selector:
+    matchLabels:
+      name: bwater-zookeeper3-data-volume
+      
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: bwater-zookeeper1-log-volume-claim
+  namespace: openfaas
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+  storageClassName: bwater-disk
+  selector:
+    matchLabels:
+      name: bwater-zookeeper1-log-volume
+      
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: bwater-zookeeper2-log-volume-claim
+  namespace: openfaas
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+  storageClassName: bwater-disk
+  selector:
+    matchLabels:
+      name: bwater-zookeeper2-log-volume
+      
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: bwater-zookeeper3-log-volume-claim
+  namespace: openfaas
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+  storageClassName: bwater-disk
+  selector:
+    matchLabels:
+      name: bwater-zookeeper3-log-volume
