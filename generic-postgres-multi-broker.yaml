@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+  namespace: openfaas
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+      - name: postgres
+        image: mrkcse/bottledwater-pg:latest
+        ports:
+        - containerPort: 5432
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: postgres-bwater-data-vol
+        env:
+        - name: PGDATA
+          value: /var/lib/postgresql/data/pgdata
+      volumes:
+      - name: postgres-bwater-data-vol
+        persistentVolumeClaim:
+          claimName: bwater-postgres-volume-claim
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: postgres
+  namespace: openfaas
+spec:
+  type: NodePort
+  selector:
+    app: postgres
+  ports:
+  - protocol: TCP
+    port: 5432
+    targetPort: 5432
