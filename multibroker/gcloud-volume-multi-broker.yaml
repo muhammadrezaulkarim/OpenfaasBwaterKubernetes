@@ -157,7 +157,7 @@ spec:
     pdName: gce-bwater-zookeeper1-log-pd
     fsType: ext4
     readOnly: false
- ---
+---
 kind: PersistentVolume
 apiVersion: v1
 metadata:
