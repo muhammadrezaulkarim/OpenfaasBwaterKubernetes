@@ -1,0 +1,66 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: bwater-postgres-volume-claim
+  namespace: openfaas
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 2Gi
+  selector:
+    matchLabels:
+      name: bwater-postgres-volume
+
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: bwater-kafka-volume-claim
+  namespace: openfaas
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 2Gi
+  selector:
+    matchLabels:
+      name: bwater-kafka-volume
+
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: bwater-zookeeper-data-volume-claim
+  namespace: openfaas
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 2Gi
+  selector:
+    matchLabels:
+      name: bwater-zookeeper-data-volume
+
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: bwater-zookeeper-log-volume-claim
+  namespace: openfaas
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 1Gi
+  selector:
+    matchLabels:
+      name: bwater-zookeeper-log-volume
