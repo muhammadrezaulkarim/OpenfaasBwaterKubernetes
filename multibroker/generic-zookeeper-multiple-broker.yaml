@@ -1,0 +1,120 @@
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: zookeeper1
+  namespace: openfaas
+spec:
+  serviceName: "zookeeper1"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: zookeeper1
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: zookeeper1
+        image: confluentinc/cp-zookeeper:4.0.0
+        ports:
+        - containerPort: 2181
+        volumeMounts:
+        - mountPath: /var/lib/zookeeper/data
+          name: bwater-zookeeper1-data-vol
+        - mountPath: /var/lib/zookeeper/log
+          name: bwater-zookeeper1-log-vol
+        env:
+        - name: ZOOKEEPER_CLIENT_PORT
+          value: "2181"
+      volumes:
+        - name: bwater-zookeeper1-data-vol
+          persistentVolumeClaim:
+            claimName: bwater-zookeeper1-data-volume-claim
+        - name: bwater-zookeeper1-log-vol
+          persistentVolumeClaim:
+            claimName: bwater-zookeeper1-log-volume-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: zookeeper1
+---
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: zookeeper2
+  namespace: openfaas
+spec:
+  serviceName: "zookeeper2"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: zookeeper2
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: zookeeper2
+        image: confluentinc/cp-zookeeper:4.0.0
+        ports:
+        - containerPort: 2181
+        volumeMounts:
+        - mountPath: /var/lib/zookeeper/data
+          name: bwater-zookeeper2-data-vol
+        - mountPath: /var/lib/zookeeper/log
+          name: bwater-zookeeper2-log-vol
+        env:
+        - name: ZOOKEEPER_CLIENT_PORT
+          value: "2181"
+      volumes:
+        - name: bwater-zookeeper2-data-vol
+          persistentVolumeClaim:
+            claimName: bwater-zookeeper2-data-volume-claim
+        - name: bwater-zookeeper2-log-vol
+          persistentVolumeClaim:
+            claimName: bwater-zookeeper2-log-volume-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: zookeeper2
+---
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: zookeeper3
+  namespace: openfaas
+spec:
+  serviceName: "zookeeper3"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: zookeeper3
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: zookeeper3
+        image: confluentinc/cp-zookeeper:4.0.0
+        ports:
+        - containerPort: 2181
+        volumeMounts:
+        - mountPath: /var/lib/zookeeper/data
+          name: bwater-zookeeper3-data-vol
+        - mountPath: /var/lib/zookeeper/log
+          name: bwater-zookeeper3-log-vol
+        env:
+        - name: ZOOKEEPER_CLIENT_PORT
+          value: "2181"
+      volumes:
+        - name: bwater-zookeeper3-data-vol
+          persistentVolumeClaim:
+            claimName: bwater-zookeeper3-data-volume-claim
+        - name: bwater-zookeeper3-log-vol
+          persistentVolumeClaim:
+            claimName: bwater-zookeeper3-log-volume-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: zookeeper3
+
