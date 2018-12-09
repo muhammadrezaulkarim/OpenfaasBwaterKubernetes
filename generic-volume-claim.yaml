@@ -6,6 +6,9 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
   storageClassName: bwater-disk
   selector:
     matchLabels:
@@ -20,6 +23,9 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
   storageClassName: bwater-disk
   selector:
     matchLabels:
@@ -34,6 +40,9 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
   storageClassName: bwater-disk
   selector:
     matchLabels:
@@ -48,6 +57,9 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
   storageClassName: bwater-disk
   selector:
     matchLabels:
