@@ -6,7 +6,7 @@ metadata:
   labels:
     name: bwater-postgres-volume
 spec:
-  storageClassName: gce-slow-disk
+  storageClassName: bwater-disk
   persistentVolumeReclaimPolicy: Retain
   volumeMode: Filesystem
   capacity:
@@ -26,7 +26,7 @@ metadata:
   labels:
     name: bwater-kafka-volume
 spec:
-  storageClassName: gce-slow-disk
+  storageClassName: bwater-disk
   persistentVolumeReclaimPolicy: Retain
   volumeMode: Filesystem
   capacity:
@@ -46,7 +46,7 @@ metadata:
   labels:
     name: bwater-zookeeper-data-volume
 spec:
-  storageClassName: gce-slow-disk
+  storageClassName: bwater-disk
   persistentVolumeReclaimPolicy: Retain
   volumeMode: Filesystem
   capacity:
@@ -66,7 +66,7 @@ metadata:
   labels:
     name: bwater-zookeeper-log-volume
 spec:
-  storageClassName: gce-slow-disk
+  storageClassName: bwater-disk
   persistentVolumeReclaimPolicy: Retain
   volumeMode: Filesystem
   capacity:
