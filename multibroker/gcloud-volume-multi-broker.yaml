@@ -1,0 +1,199 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: bwater-postgres-volume
+  namespace: openfaas
+  labels:
+    name: bwater-postgres-volume
+spec:
+  storageClassName: bwater-disk
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  gcePersistentDisk:
+    pdName: gce-bwater-postgres-pd
+    fsType: ext4
+    readOnly: false
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: bwater-kafka1-volume
+  namespace: openfaas
+  labels:
+    name: bwater-kafka1-volume
+spec:
+  storageClassName: bwater-disk
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  gcePersistentDisk:
+    pdName: gce-bwater-kafka1-pd
+    fsType: ext4
+    readOnly: false
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: bwater-kafka2-volume
+  namespace: openfaas
+  labels:
+    name: bwater-kafka2-volume
+spec:
+  storageClassName: bwater-disk
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  gcePersistentDisk:
+    pdName: gce-bwater-kafka2-pd
+    fsType: ext4
+    readOnly: false
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: bwater-kafka3-volume
+  namespace: openfaas
+  labels:
+    name: bwater-kafka3-volume
+spec:
+  storageClassName: bwater-disk
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  gcePersistentDisk:
+    pdName: gce-bwater-kafka3-pd
+    fsType: ext4
+    readOnly: false
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: bwater-zookeeper1-data-volume
+  namespace: openfaas
+  labels:
+    name: bwater-zookeeper1-data-volume
+spec:
+  storageClassName: bwater-disk
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  gcePersistentDisk:
+    pdName: gce-bwater-zookeeper1-data-pd
+    fsType: ext4
+    readOnly: false
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: bwater-zookeeper2-data-volume
+  namespace: openfaas
+  labels:
+    name: bwater-zookeeper2-data-volume
+spec:
+  storageClassName: bwater-disk
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  gcePersistentDisk:
+    pdName: gce-bwater-zookeeper2-data-pd
+    fsType: ext4
+    readOnly: false
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: bwater-zookeeper3-data-volume
+  namespace: openfaas
+  labels:
+    name: bwater-zookeeper3-data-volume
+spec:
+  storageClassName: bwater-disk
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  gcePersistentDisk:
+    pdName: gce-bwater-zookeeper3-data-pd
+    fsType: ext4
+    readOnly: false
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: bwater-zookeeper1-log-volume
+  namespace: openfaas
+  labels:
+    name: bwater-zookeeper1-log-volume
+spec:
+  storageClassName: bwater-disk
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  gcePersistentDisk:
+    pdName: gce-bwater-zookeeper1-log-pd
+    fsType: ext4
+    readOnly: false
+ ---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: bwater-zookeeper2-log-volume
+  namespace: openfaas
+  labels:
+    name: bwater-zookeeper2-log-volume
+spec:
+  storageClassName: bwater-disk
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  gcePersistentDisk:
+    pdName: gce-bwater-zookeeper2-log-pd
+    fsType: ext4
+    readOnly: false
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: bwater-zookeeper3-log-volume
+  namespace: openfaas
+  labels:
+    name: bwater-zookeeper3-log-volume
+spec:
+  storageClassName: bwater-disk
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  gcePersistentDisk:
+    pdName: gce-bwater-zookeeper3-log-pd
+    fsType: ext4
+    readOnly: false
