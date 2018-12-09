@@ -22,7 +22,7 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - my-node1
+          - my-nodename
 ---
 kind: PersistentVolume
 apiVersion: v1
@@ -48,7 +48,7 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - my-node2
+          - my-nodename
 ---
 kind: PersistentVolume
 apiVersion: v1
@@ -74,7 +74,7 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - my-node3
+          - my-nodename
 ---
 kind: PersistentVolume
 apiVersion: v1
@@ -100,4 +100,4 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - my-node4
+          - my-nodename
