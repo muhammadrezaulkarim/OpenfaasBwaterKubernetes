@@ -4,6 +4,8 @@ metadata:
   name: bwater-postgres-volume-claim
   namespace: openfaas
 spec:
+  accessModes:
+    - ReadWriteOnce
   selector:
     matchLabels:
       name: bwater-postgres-volume
@@ -15,6 +17,8 @@ metadata:
   name: bwater-kafka-volume-claim
   namespace: openfaas
 spec:
+  accessModes:
+    - ReadWriteOnce
   selector:
     matchLabels:
       name: bwater-kafka-volume
@@ -26,6 +30,8 @@ metadata:
   name: bwater-zookeeper-data-volume-claim
   namespace: openfaas
 spec:
+  accessModes:
+    - ReadWriteOnce
   selector:
     matchLabels:
       name: bwater-zookeeper-data-volume
@@ -37,6 +43,8 @@ metadata:
   name: bwater-zookeeper-log-volume-claim
   namespace: openfaas
 spec:
+  accessModes:
+    - ReadWriteOnce
   selector:
     matchLabels:
       name: bwater-zookeeper-log-volume
