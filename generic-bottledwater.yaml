@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bottledwater
+  namespace: openfaas
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bottledwater
+  template:
+    metadata:
+      labels:
+        app: bottledwater
+    spec:
+      containers:
+      - name: bottledwater
+        image: mrkcse/bottledwater-pg:latest
+        command:
+        - /usr/local/bin/bottledwater-docker-wrapper.sh
+        env:
+        - name: BOTTLED_WATER_BROKER
+          value: kafka-service:9092
+        - name: BOTTLED_WATER_ON_ERROR
+          value: exit
+        - name: BOTTLED_WATER_OUTPUT_FORMAT
+          value: json
+        - name: BOTTLED_WATER_POSTGRES
+          value: postgres://postgres:postgres@postgres:5432/postgres
+        - name: BOTTLED_WATER_SKIP_SNAPSHOT
+          value: "false"
+        - name: BOTTLED_WATER_SLOT
+          value: mrkcseslot
+        - name: BOTTLED_WATER_TOPIC_PREFIX
+          value: mrkcse
+        ports:
+        - containerPort: 5432
+        volumeMounts:
+        - mountPath: /data
+          name: bottledwatervolume
+      volumes:
+      - name: bottledwatervolume
+        emptyDir: {}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bottledwater
+  namespace: openfaas
+spec:
+  selector:
+    app: bottledwater
+  ports:
+  - protocol: TCP
+    port: 5432
+    targetPort: 5432
+   
