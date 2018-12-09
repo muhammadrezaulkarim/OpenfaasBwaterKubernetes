@@ -1,0 +1,103 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: bwater-postgres-volume
+  namespace: openfaas
+  labels:
+    name: bwater-postgres-volume
+spec:
+  storageClassName: bwater-disk
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  local:
+    path: /mnt/disks/vol1
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - my-node1
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: bwater-kafka-volume
+  namespace: openfaas
+  labels:
+    name: bwater-kafka-volume
+spec:
+  storageClassName: bwater-disk
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  local:
+    path: /mnt/disks/vol2
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - my-node2
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: bwater-zookeeper-data-volume
+  namespace: openfaas
+  labels:
+    name: bwater-zookeeper-data-volume
+spec:
+  storageClassName: bwater-disk
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  local:
+    path: /mnt/disks/vol3
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - my-node3
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: bwater-zookeeper-log-volume
+  namespace: openfaas
+  labels:
+    name: bwater-zookeeper-log-volume
+spec:
+  storageClassName: bwater-disk
+  persistentVolumeReclaimPolicy: Retain
+  volumeMode: Filesystem
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  local:
+    path: /mnt/disks/vol4
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - my-node4
