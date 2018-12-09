@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ftrigger-kafka
+  namespace: openfaas
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ftrigger-kafka
+  template:
+    metadata:
+      labels:
+        app: ftrigger-kafka
+    spec:
+      containers:
+      - name: ftrigger-kafka
+        image: mrkcse/ftrigger:latest
+        args:
+        - kafka-trigger
+        ports:
+        - containerPort: 5000
+        env:
+        - name: STACK_NAMESPACE
+          value: "OPENFAAS-FUNCTION-STACK"
+        - name: AUTO_COMMIT_INTERVAL_MS
+          value: "5000"
+        - name: AUTO_OFFSET_RESET
+          value: largest
+        - name: ENABLE_AUTO_COMMIT
+          value: "True"
+        - name: FETCH_MAX_WAIT_MS
+          value: "100"
+        - name: KAFKA_BOOTSTRAP_SERVERS
+          value: kafka-service:9092
+        - name: MAX_POLL_RECORDS
+          value: "10000"
+        - name: MAX_RECORDS_MSG_LIST
+          value: "5000"
+        - name: MAX_WAIT_MSG_LIST
+          value: "1000"
+        - name: NUMBER_OF_CONSUMERS_PER_TOPIC
+          value: "1"
+        - name: POLL_TIME_OUT
+          value: "1000"
+
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: ftrigger-kafka
+  namespace: openfaas
+spec:
+  selector:
+    app: ftrigger-kafka
+  ports:
+  - protocol: TCP
+    port: 5000
+    targetPort: 5000
