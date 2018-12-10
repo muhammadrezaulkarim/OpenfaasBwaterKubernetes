@@ -42,7 +42,7 @@ spec:
   ports:
   - port: 2181
   selector:
-    app:zookeeper1
+    app: zookeeper1
     
 ---
 apiVersion: apps/v1beta1
@@ -89,7 +89,7 @@ spec:
   ports:
   - port: 2181
   selector:
-    app:zookeeper2
+    app: zookeeper2
 ---
 apiVersion: apps/v1beta1
 kind: StatefulSet
@@ -135,5 +135,5 @@ spec:
   ports:
   - port: 2181
   selector:
-    app:zookeeper3
+    app: zookeeper3
 
