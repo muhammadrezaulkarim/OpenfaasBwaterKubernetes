@@ -1,0 +1,21 @@
+
+Google cloud commands to create compute disks for volume:
+................................................
+
+gcloud compute disks create --size=2GB --zone=us-central1-a gce-bwater-postgres-pd
+
+
+gcloud compute disks create --size=2GB --zone=us-central1-a gce-bwater-kafka1-pd
+gcloud compute disks create --size=2GB --zone=us-central1-a gce-bwater-kafka2-pd
+gcloud compute disks create --size=2GB --zone=us-central1-a gce-bwater-kafka3-pd
+
+
+
+gcloud compute disks create --size=2GB --zone=us-central1-a gce-bwater-zookeeper1-data-pd
+gcloud compute disks create --size=2GB --zone=us-central1-a gce-bwater-zookeeper2-data-pd
+gcloud compute disks create --size=2GB --zone=us-central1-a gce-bwater-zookeeper3-data-pd
+
+
+gcloud compute disks create --size=2GB --zone=us-central1-a gce-bwater-zookeeper1-log-pd
+gcloud compute disks create --size=2GB --zone=us-central1-a gce-bwater-zookeeper2-log-pd
+gcloud compute disks create --size=2GB --zone=us-central1-a gce-bwater-zookeeper3-log-pd
