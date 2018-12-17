@@ -25,7 +25,7 @@ gcloud compute disks create --size=2GB --zone=us-central1-a gce-bwater-zookeeper
 Google cloud commands to delete compute disks for volume:
 ................................................
 
-gcloud compute disks create --size=2GB --zone=us-central1-a gce-bwater-postgres-pd
+gcloud compute disks delete --zone=us-central1-a gce-bwater-postgres-pd
 
 
 gcloud compute disks delete --zone=us-central1-a gce-bwater-kafka1-pd
